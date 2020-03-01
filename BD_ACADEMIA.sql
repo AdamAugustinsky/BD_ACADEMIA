@@ -60,3 +60,12 @@ CREATE TABLE Aluno_Turma(
 )
 
 SELECT * FROM Aluno_Turma
+
+
+CREATE TABLE Ausencia(
+    Id INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Data_Ausencia DATE NOT NULL,
+    Id_AlunoTurma INTEGER NOT NULL FOREIGN KEY REFERENCES Aluno_Turma(Id)
+)
+
+SELECT * FROM Ausencia
