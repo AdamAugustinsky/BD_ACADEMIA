@@ -15,7 +15,7 @@ SELECT * FROM Instrutor
 CREATE TABLE Matricula(
     Id INTEGER  NOT NULL IDENTITY(1,1) PRIMARY KEY ,
     Data_Matricula  DATE NOT NULL,
-    Data_Vencimento DATE NOT NULL,
+    Data_Vencimento DATE L,
     CPF_Instrutor INTEGER FOREIGN KEY REFERENCES Instrutor(CPF)
 )
 
@@ -32,8 +32,8 @@ CREATE TABLE Aluno(
     Id_Matricula INTEGER FOREIGN KEY REFERENCES Matricula(Id)
 )
 
-
 SELECT * FROM Aluno
+
 
 CREATE TABLE Atividade(
     Id INTEGER NOT NULL IDENTITY(1, 1) PRIMARY KEY,
@@ -42,3 +42,12 @@ CREATE TABLE Atividade(
 )
 
 SELECT * FROM Atividade
+
+
+CREATE TABLE Turma(
+    Id INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Horario_Aula INTEGER NOT NULL,
+    Id_Atividade INTEGER FOREIGN KEY REFERENCES Atividade(Id)
+)
+
+SELECT * FROM Turma
