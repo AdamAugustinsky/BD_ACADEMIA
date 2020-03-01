@@ -22,3 +22,15 @@ CREATE TABLE Matricula(
 SELECT * FROM Matricula
 
 
+CREATE TABLE Aluno(
+    CPF INTEGER NOT NULL PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL,
+    Data_Nascimento DATE NOT NULL,
+    Altura FLOAT,
+    Peso INTEGER,
+    Telefone VARCHAR(20),
+    Id_Matricula INTEGER FOREIGN KEY REFERENCES Matricula(Id)
+)
+
+
+SELECT * FROM Aluno
