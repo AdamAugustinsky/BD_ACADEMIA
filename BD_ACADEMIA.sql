@@ -6,17 +6,17 @@ CREATE TABLE Instrutor(
     CPF INTEGER NOT NULL PRIMARY KEY,
     Nome VARCHAR(50) NOT NULL,
     Data_Nascimento DATE NOT NULL,
-    Telefone VARCHAR(11) 
+    Telefone VARCHAR(17)
 )
 
 SELECT * FROM Instrutor
 
 
 CREATE TABLE Matricula(
-    Id INTEGER  NOT NULL IDENTITY(1,1) PRIMARY KEY ,
+    Id INTEGER  NOT NULL IDENTITY(1,1) PRIMARY KEY,
     Data_Matricula  DATE NOT NULL,
-    Data_Vencimento DATE L,
-    CPF_Instrutor INTEGER FOREIGN KEY REFERENCES Instrutor(CPF)
+    Data_Vencimento DATE,
+    CPF_Instrutor INTEGER NOT NULL FOREIGN KEY REFERENCES Instrutor(CPF)
 )
 
 SELECT * FROM Matricula
@@ -29,7 +29,7 @@ CREATE TABLE Aluno(
     Altura FLOAT,
     Peso INTEGER,
     Telefone VARCHAR(20),
-    Id_Matricula INTEGER FOREIGN KEY REFERENCES Matricula(Id)
+    Id_Matricula INTEGER NOT NULL FOREIGN KEY REFERENCES Matricula(Id)
 )
 
 SELECT * FROM Aluno
@@ -38,7 +38,7 @@ SELECT * FROM Aluno
 CREATE TABLE Atividade(
     Id INTEGER NOT NULL IDENTITY(1, 1) PRIMARY KEY,
     Nome VARCHAR(50) NOT NULL,
-    CPF_Instrutor INTEGER FOREIGN KEY REFERENCES Instrutor(CPF)
+    CPF_Instrutor INTEGER NOT NULL FOREIGN KEY REFERENCES Instrutor(CPF)
 )
 
 SELECT * FROM Atividade
@@ -47,7 +47,7 @@ SELECT * FROM Atividade
 CREATE TABLE Turma(
     Id INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY,
     Horario_Aula INTEGER NOT NULL,
-    Id_Atividade INTEGER FOREIGN KEY REFERENCES Atividade(Id)
+    Id_Atividade INTEGER NOT NULL FOREIGN KEY REFERENCES Atividade(Id)
 )
 
 SELECT * FROM Turma
