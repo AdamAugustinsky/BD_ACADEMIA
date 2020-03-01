@@ -69,3 +69,14 @@ CREATE TABLE Ausencia(
 )
 
 SELECT * FROM Ausencia
+
+
+CREATE TABLE Pagamento(
+    Id INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Data_Pagamento DATE NOT NULL,
+    Forma_Pagamento VARCHAR(20),
+    Valor_Pagamento MONEY NOT NULL,
+    Id_Matricula INTEGER NOT NULL FOREIGN KEY REFERENCES Matricula(Id)
+)
+
+SELECT * FROM Pagamento
