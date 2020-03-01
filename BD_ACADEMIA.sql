@@ -8,3 +8,17 @@ CREATE TABLE Instrutor(
     Data_Nascimento DATE NOT NULL,
     Telefone VARCHAR(11) 
 )
+
+SELECT * FROM Instrutor
+
+
+CREATE TABLE Matricula(
+    Id_Matricula INTEGER  NOT NULL IDENTITY(1,1) PRIMARY KEY ,
+    Data_Matricula  DATE NOT NULL,
+    Data_Vencimento DATE NOT NULL,
+    CPF_Instrutor INTEGER FOREIGN KEY REFERENCES Instrutor(CPF)
+)
+
+SELECT * FROM Matricula
+
+
